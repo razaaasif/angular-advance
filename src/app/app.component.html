@@ -5,9 +5,13 @@
   />
 </div>
 
+<div class="demo">
+  <div>Start Date: {{ startDate | date : "MMM/dd/yyyy" }}</div>
+</div>
+
 <div class="courses">
   <course-card
-    *ngFor="let course of curses; index as i; first as isFirst; last as isLast"
+    *ngFor="let course of course; index as i; first as isFirst; last as isLast"
     [course]="course"
     [class.is-first]="isFirst"
     [class.is-last]="isLast"
