@@ -9,4 +9,9 @@ import { Course } from "./model/course";
 })
 export class AppComponent {
   public curses = COURSES;
+
+  onCourseSelected(course: Course) {
+    // this.curses = course;
+    console.log("Course : " + JSON.stringify(course));
+  }
 }

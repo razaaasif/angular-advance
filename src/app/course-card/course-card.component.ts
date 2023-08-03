@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input } from "@angular/core";
+import { Component, EventEmitter, Input, Output } from "@angular/core";
 import { Course } from "../model/course";
 
 @Component({
@@ -8,9 +8,15 @@ import { Course } from "../model/course";
 })
 export class CourseCardComponent {
   @Input({ required: true }) course: Course;
-  courseSelected: EventEmitter<Course> = new EventEmitter<Course>();
-  public onCourseViewd(): void {
+  @Input({ required: true }) index: number;
+  @Output() courseSelected: EventEmitter<Course> = new EventEmitter<Course>();
+  public onCourseView(): void {
     console.log("clicked");
     this.courseSelected.emit(this.course);
+  }
+  cardClass() {
+    if (this.course.category === "BEGINNER") {
+      return "beginner";
+    }
   }
 }
